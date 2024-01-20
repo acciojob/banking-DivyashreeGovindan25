@@ -20,19 +20,25 @@ public class SavingsAccount extends BankAccount{
 
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
-        double balances = super.getBalance();
-        double finalAmount = (balances*years*rate)/100;
-        return finalAmount;
+        double interest = getBalance()*(rate/100)*years;
+
+        return getBalance() + interest;
     }
 
     public double getCompoundInterest(int times, int years){
         // Return the final amount considering that bank gives compound interest on current amount given times per year
-        double balances = super.getBalance();
-        double rt = 1+(rate/times);
-        double finalAmount = balances*Math.pow(rt,times*years);
-        return finalAmount;
+        double P = getBalance();
+        double r = rate/100;
+        int n = times;
+        int t = years;
+        double A = P * (Math.pow((1 + (r/n)), (n*t)));
+        return A;
+
     }
-    public double getMaxWithdrawLimit(){
+    public double getRate() {
+        return rate;
+    }
+    public double getMaxWithdrawalLimit() {
         return maxWithdrawalLimit;
     }
 }

@@ -27,7 +27,7 @@ public class BankAccount {
         //If it is not possible, throw "Account Number can not be generated" exception
         StringBuilder accno;
         if (9 * digits < sum || sum < 0)
-            throw new Exception("Account Number can not be generated");
+            throw new AccountNumberException("Account Number can not be generated");
         else {
             accno = new StringBuilder();
             int nines = sum / 9;
