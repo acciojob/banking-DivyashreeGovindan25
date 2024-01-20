@@ -27,7 +27,7 @@ public class BankAccount {
         //If it is not possible, throw "Account Number can not be generated" exception
         StringBuilder accno;
         if (9 * digits < sum || sum < 0)
-            throw new AccountNumberException("Account Number can not be generated");
+            throw new AcNumberException("Account Number can not be generated");
         else {
             accno = new StringBuilder();
             int nines = sum / 9;
@@ -47,7 +47,7 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) throws Exception {
-        if(amount > balance || (balance-amount < minBalance)) throw new InsufficientBalanceException("Insufficient Balance");
+        if(amount > balance || (balance-amount < minBalance)) throw new InSufficientBalanceException("Insufficient Balance");
         else balance -= amount;
     }
 //    private static void recur(int digits,int sum,String accountNo){
